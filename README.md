@@ -1,6 +1,6 @@
 # SAP Cloud Integration Pharma Cold-Chain QA: Spock TDD & GitOps CI/CD
 
-[![SAP CPI TDD & Piper CI/CD](https://github.com/neurozeljko/sap-cpi-pharma-coldchain-tdd-cicd/actions/workflows/ci-cd-piper.yml/badge.svg)]([https://github.com/neurozeljko/sap-cpi-pharma-coldchain-tdd-cicd/actions/workflows/ci-cd-piper.yml](https://github.com/neurozeljko/sap-cpi-pharma-coldchain-tdd-cicd/actions/workflows/ci-cd-piper.yml))
+[![CI/CD Pipeline](https://img.shields.io/badge/CI%2FCD%20Pipeline-GitHub%20Actions%20%7C%20Project%20Piper-2088FF?logo=githubactions&logoColor=white&style=flat-square)](#2-gitops--tdd-pipeline-architecture)
 [![SAP Integration Suite](https://img.shields.io/badge/SAP%20Integration%20Suite-Cloud%20Integration%20%7C%20Groovy%203-0a6ed1?logo=sap&style=flat-square)](https://www.sap.com)
 [![Test Framework](https://img.shields.io/badge/QA%20Framework-Spock%202.3%20%7C%20Message%20Mocking-success?style=flat-square)](#3-spock-framework-unit-test--message-mocking)
 [![Compliance](https://img.shields.io/badge/GxP%20Compliance-EU%20Annex%2011%20%7C%20FDA%2021%20CFR%20Part%2011-008080?style=flat-square)](#6-architectural-decision-record-adr-026)
@@ -103,6 +103,19 @@ def "GxP Cold-Chain Evaluation: #scenario (#temp #unit -> #expectedCelsius C => 
 }
 ```
 
+### Verification Coverage Matrix
+
+| Test Scenario | Input Reading | Normalized (`°C`) | GxP Release Status | HTTP Code |
+| :--- | :--- | :---: | :--- | :---: |
+| **Optimal Cryogenic Storage** | `-70.0 C` | `-70.0` | `RELEASED_FOR_PATIENT_ADMINISTRATION` | `200` |
+| **Lower Boundary Threshold** | `-80.0 C` | `-80.0` | `RELEASED_FOR_PATIENT_ADMINISTRATION` | `200` |
+| **Upper Boundary Threshold** | `-60.0 C` | `-60.0` | `RELEASED_FOR_PATIENT_ADMINISTRATION` | `200` |
+| **US Fahrenheit Telemetry** | `-94.0 F` | `-70.0` | `RELEASED_FOR_PATIENT_ADMINISTRATION` | `200` |
+| **Kelvin Lab Sensor Reading** | `203.15 K` | `-70.0` | `RELEASED_FOR_PATIENT_ADMINISTRATION` | `200` |
+| **Warm Thermal Excursion** | `-45.0 C` | `-45.0` | `QUARANTINE_THERMAL_EXCURSION` | `422` |
+| **Over-Freezing Excursion** | `-95.0 C` | `-95.0` | `QUARANTINE_THERMAL_EXCURSION` | `422` |
+| **Empty / Invalid Unit Payload** | `""` / `365 R` | *Rejected* | `REJECTED_INVALID_TELEMETRY` (`Exception Subprocess`) | `400` |
+
 ---
 
 ## 4. Runtime Payload & GxP Quarantine Behavior
@@ -184,4 +197,4 @@ X-GxP-Release-Status: RELEASED_FOR_PATIENT_ADMINISTRATION
 
 ---
 
-**Lead Integration Architect:** Željko Popov
+**Integration Architect:** Željko Popov
