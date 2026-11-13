@@ -1,0 +1,16 @@
+general:
+  buildTool: 'gradle'
+  verbose: true
+
+stages:
+  Acceptance:
+    cfOrg: 'sap-btp-pharma-prod'
+    cfSpace: 'integration-suite-eu10'
+
+steps:
+  cpiArtifactDeploy:
+    apiServiceKeyCredentialsId: 'SAP_CPI_BTP_OAUTH_SERVICE_KEY'
+    integrationFlowId: 'Pharma_ColdChain_GxP_TempValidator_v1'
+    integrationFlowName: 'Pharma_ColdChain_GxP_TempValidator_v1'
+    packageId: 'PharmaColdChainGxP'
+    deploy: true

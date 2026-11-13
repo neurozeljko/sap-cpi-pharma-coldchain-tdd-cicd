@@ -1,6 +1,6 @@
 # SAP Cloud Integration Pharma Cold-Chain QA: Spock TDD & GitOps CI/CD
 
-[![SAP CPI TDD & Piper CI/CD](https://github.com/neurozeljko/sap-cpi-pharma-coldchain-tdd-cicd/actions/workflows/ci-cd-piper.yml/badge.svg)](https://github.com/neurozeljko/sap-cpi-pharma-coldchain-tdd-cicd/actions/workflows/ci-cd-piper.yml)
+[![SAP CPI TDD & Piper CI/CD](https://github.com/neurozeljko/sap-cpi-pharma-coldchain-tdd-cicd/actions/workflows/ci-cd-piper.yml/badge.svg)]([https://github.com/neurozeljko/sap-cpi-pharma-coldchain-tdd-cicd/actions/workflows/ci-cd-piper.yml](https://github.com/neurozeljko/sap-cpi-pharma-coldchain-tdd-cicd/actions/workflows/ci-cd-piper.yml))
 [![SAP Integration Suite](https://img.shields.io/badge/SAP%20Integration%20Suite-Cloud%20Integration%20%7C%20Groovy%203-0a6ed1?logo=sap&style=flat-square)](https://www.sap.com)
 [![Test Framework](https://img.shields.io/badge/QA%20Framework-Spock%202.3%20%7C%20Message%20Mocking-success?style=flat-square)](#3-spock-framework-unit-test--message-mocking)
 [![Compliance](https://img.shields.io/badge/GxP%20Compliance-EU%20Annex%2011%20%7C%20FDA%2021%20CFR%20Part%2011-008080?style=flat-square)](#6-architectural-decision-record-adr-026)
@@ -184,4 +184,4 @@ X-GxP-Release-Status: RELEASED_FOR_PATIENT_ADMINISTRATION
 
 ---
 
-**Integration Architect:** Željko Popov
+**Lead Integration Architect:** Željko Popov
